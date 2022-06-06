@@ -3,7 +3,7 @@
 M = 1; N = 15 -> 120
 M = 4; N = 8. -> 30
 */
-int Number(int numberOne, int numberTwo)
+int SumNaturalNumbers(int numberOne, int numberTwo)
 {
     if (numberOne==numberTwo)
     {
@@ -11,16 +11,18 @@ int Number(int numberOne, int numberTwo)
     }
     else if (numberOne>numberTwo)
     {
-        return numberTwo+Number(numberOne,numberTwo+1);
+        return numberTwo+SumNaturalNumbers(numberOne,numberTwo+1);
     }
     else
     {
-         return numberOne+Number(numberOne+1,numberTwo);
+         return numberOne+SumNaturalNumbers(numberOne+1,numberTwo);
 
     }
 }
-Console.WriteLine("Введите 2 числа: ");
+Console.WriteLine("Поиск суммы натуральных чисел: ");
+Console.Write("Введите значение M: ");
 int numberOne=Convert.ToInt32(Console.ReadLine());
+Console.Write("Введите значение N: ");
 int numberTwo=Convert.ToInt32(Console.ReadLine());
-int result = Number(numberOne, numberTwo);
+int result = SumNaturalNumbers(numberOne, numberTwo);
 Console.WriteLine($"M = {numberOne}; N = {numberTwo} - > {result}");
